@@ -1,0 +1,71 @@
+#include <stdio.h>
+#include <string.h>
+
+#define MAX_ITEMS 50   
+
+int main() {
+    char inventory[MAX_ITEMS][50]; 
+    int count = 0;                 
+    int choice;
+
+    do {
+        printf("\nInventory Menu:\n");
+        printf("1. Add Item\n");
+        printf("2. Remove Item\n");
+        printf("3. Show Items\n");
+        printf("4. Exit\n");
+        printf("Enter your choice: ");
+        scanf("%d", &choice);
+        getchar(); 
+
+        if (choice == 1) {
+            if (count < MAX_ITEMS) {
+                printf("Enter item name: ");
+                fgets(inventory[count],50, stdin);
+                inventory[count][strcspn(inventory[count], "\n")] = '\0'; 
+                count++;
+                printf("Item added!\n");
+            } else {
+                printf("Inventory full!\n");
+            }
+        } else if (choice == 2) {
+            if (count > 0) {
+                char item[50];
+                printf("Enter item name to remove: ");
+                fgets(item,50, stdin);
+                item[strcspn(item, "\n")] = '\0'; 
+
+                int found = 0;
+                for (int i = 0; i < count; i++) {
+                    if (strcmp(inventory[i], item) == 0) {
+                        for (int j = i; j < count - 1; j++) {
+                            strcpy(inventory[j], inventory[j + 1]);
+                        }
+                        count--;
+                        found = 1;
+                        printf("Item removed!\n");
+                        break;
+                    }
+                }
+                if (!found) {
+                    printf("Item not found!\n");
+                }
+            } else {
+                printf("Inventory is empty!\n");
+            }
+        } else if (choice == 3) {
+            if (count == 0) {
+                printf("Inventory is empty!\n");
+            } else {
+                printf("Items in Inventory:\n");
+                for (int i = 0; i < count; i++) {
+                    printf("%d. %s\n", i + 1, inventory[i]);
+                }
+            }
+        }
+
+    } while (choice != 4);
+
+    printf("Exiting program.\n");
+    return 0;
+}
