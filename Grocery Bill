@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+int main() {
+    int items, i;
+    float price, total = 0;
+
+    printf("Enter number of items: ");
+    scanf("%d", &items);
+
+    for (i = 1; i <= items; i++) {
+        printf("Enter price of item %d: ", i);
+        scanf("%f", &price);
+        total = total + price;
+    }
+
+    printf("\nTotal Bill Amount = Rs. %.2f\n", total);
+
+    return 0;
+}
