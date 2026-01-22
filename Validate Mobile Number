@@ -1,0 +1,16 @@
+#include <stdio.h>
+#include <string.h>
+
+int main() {
+    char mobile[20];
+
+    printf("Enter mobile number: ");
+    fgets(mobile, 20, stdin);
+
+    if(strlen(mobile) == 11)   // 10 digits + '\n'
+        printf("Valid mobile number\n");
+    else
+        printf("Invalid mobile number\n");
+
+    return 0;
+}
