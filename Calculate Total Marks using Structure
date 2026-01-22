@@ -1,0 +1,19 @@
+#include <stdio.h>
+
+struct Marks {
+    int m1, m2, m3;
+};
+
+int main() {
+    struct Marks s;
+    int total;
+
+    printf("Enter 3 subject marks: ");
+    scanf("%d %d %d", &s.m1, &s.m2, &s.m3);
+
+    total = s.m1 + s.m2 + s.m3;
+
+    printf("\nTotal Marks = %d\n", total);
+
+    return 0;
+}
