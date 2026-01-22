@@ -1,0 +1,25 @@
+#include <stdio.h>
+
+int main() {
+    int arr[20], n, i, add;
+
+    printf("Enter number of elements: ");
+    scanf("%d", &n);
+
+    for(i = 0; i < n; i++)
+        scanf("%d", &arr[i]);
+
+    printf("Enter number of new elements: ");
+    scanf("%d", &add);
+
+    for(i = n; i < n + add; i++)
+        scanf("%d", &arr[i]);
+
+    n += add;
+
+    printf("Updated list:\n");
+    for(i = 0; i < n; i++)
+        printf("%d ", arr[i]);
+
+    return 0;
+}
