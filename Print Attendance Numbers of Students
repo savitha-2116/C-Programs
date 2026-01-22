@@ -1,0 +1,24 @@
+#include <stdio.h>
+
+int main() {
+    int n, i;
+    int attendance[50];
+
+    // Read number of students
+    printf("Enter number of students: ");
+    scanf("%d", &n);
+
+    // Read attendance numbers
+    for (i = 0; i < n; i++) {
+        printf("Enter attendance number of student %d: ", i + 1);
+        scanf("%d", &attendance[i]);
+    }
+
+    // Display attendance numbers
+    printf("\nAttendance Numbers of Students:\n");
+    for (i = 0; i < n; i++) {
+        printf("Student %d: %d\n", i + 1, attendance[i]);
+    }
+
+    return 0;
+}
