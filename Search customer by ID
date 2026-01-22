@@ -14,16 +14,29 @@ int main() {
     scanf("%d", &n);
 
     for(i = 0; i < n; i++) {
-        printf("\nCustomer %d\n", i+1);
-        scanf("%d %s %s", &c[i].id, c[i].name, c[i].mobile);
+        printf("\nCustomer %d\n", i + 1);
+
+        printf("ID: ");
+        scanf("%d", &c[i].id);
+
+        getchar();  // clear newline
+
+        printf("Name: ");
+        fgets(c[i].name, sizeof(c[i].name), stdin);
+
+        printf("Mobile: ");
+        fgets(c[i].mobile, sizeof(c[i].mobile), stdin);
     }
 
-    printf("Enter ID to search: ");
+    printf("\nEnter ID to search: ");
     scanf("%d", &searchId);
 
     for(i = 0; i < n; i++) {
         if(c[i].id == searchId) {
-            printf("Found: %s %s\n", c[i].name, c[i].mobile);
+            printf("\nCustomer Found\n");
+            printf("ID: %d\n", c[i].id);
+            printf("Name: %s", c[i].name);
+            printf("Mobile: %s", c[i].mobile);
             return 0;
         }
     }
