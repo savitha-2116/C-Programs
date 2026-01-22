@@ -5,11 +5,14 @@ int main() {
     int i, count = 0;
 
     printf("Enter a string: ");
-    gets(str);
+    fgets(str, 100, stdin);   // use fgets instead of gets
 
-    for(i = 0; str[i] != '\0'; i++)
-        count++;
+    for(i = 0; str[i] != '\0'; i++) {
+        if(str[i] != '\n')   // ignore newline added by fgets
+            count++;
+    }
 
     printf("Number of characters = %d\n", count);
     return 0;
 }
+
